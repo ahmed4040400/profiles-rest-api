@@ -17,8 +17,8 @@ class UserProfileManager(BaseUserManager):
         # to make the second half of the email not case senstive
         email = self.normalize_email(email)
         #adding the name and the emails to the model
-        #which iin this case is the UserProfile model
-        user = seld.model(email = email , name = name)
+        #which in this case is the UserProfile model
+        user = self.model(email = email , name = name)
         #adding the password to the model using the
         #set_password method
         user.set_password(password)
@@ -28,7 +28,7 @@ class UserProfileManager(BaseUserManager):
         #returns the user object
         return user
 
-    def creat_super_user(self , email,name,password):
+    def create_superuser(self ,email,password,name):
         """for creating a super user"""
         # start by creating a normal user
         user = self.creat_user(email,name,password)
@@ -49,7 +49,7 @@ class UserProfile(AbstractBaseUser , PermissionsMixin):
     """database model for user in the system"""
 
     email = models.EmailField(max_length = 255 ,unique = True )
-    name = models.CharField(max_length= 255)
+    name = models.CharField(max_length= 255,unique =True)
     is_active = models.BooleanField(default = True)
     #is admin
     is_staff = models.BooleanField(default = False)
@@ -57,7 +57,7 @@ class UserProfile(AbstractBaseUser , PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FILEDS = ['name']
+    REQUIRED_FIELDS = ['name']
 
     def get_full_name(self):
         #TODO:returns the user full name
@@ -69,4 +69,4 @@ class UserProfile(AbstractBaseUser , PermissionsMixin):
 
     #for preview the users based on the email adress
     def __str__(self):
-        return self.email
+        return self.name
