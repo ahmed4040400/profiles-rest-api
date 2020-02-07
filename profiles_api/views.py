@@ -38,12 +38,15 @@ class helloWorld(APIView):
             # return the error statment
             #from the serializer with status code 400 bad request
             return Response (serializer.errors, status = 400)
-
+    # in case the request method is put
+    # we just return dummy data with the method name
     def put (self , request , pk = None):
         return Response({"method" : "put"})
-
+    # in case the request method is patch
+    # we just return dummy data with the method name
     def patch (self , request , pk = None):
         return Response({"method" : "patch"})
-
+    # in case the request method is delete
+    # we just return dummy data with the method name
     def delete (self , request , pk = None):
         return Response({"method" : "delete"})
