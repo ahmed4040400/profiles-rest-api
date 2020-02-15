@@ -9,7 +9,7 @@ class UserProfileManager(BaseUserManager):
        like adding users and super users
      """
 
-    def creat_user(self , email,name,password=None):
+    def create_user(self , email,name,password=None):
 
         """creat a normal user"""
         if not email :
