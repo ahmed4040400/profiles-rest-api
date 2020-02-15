@@ -17,7 +17,7 @@ class UpdateOwnProfile(permissions.BasePermission):
         #if the req method is a safe method such as GET
         # we return true bacause the user is just reading the database
         # in this case
-        if request.method == permissions.SAFE_METHODS:
+        if request.method in permissions.SAFE_METHODS:
             return True
 
         #otherwise we make sure that the user is updating

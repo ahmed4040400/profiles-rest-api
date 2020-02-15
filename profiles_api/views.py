@@ -5,6 +5,8 @@ from rest_framework.views import APIView
 #viewsets is view to also api calling but in much simpler way
 #ant basic api serving class should inherit it
 from rest_framework import viewsets
+
+from rest_framework import filters
 #what this does is Generating a authtoken to add to the
 #url to know which user is making the requist
 #or if its authed user or not
@@ -140,5 +142,10 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     # so any requist gonna be made on this view will go
     # first to check if its legit and allow it
-    # if its not legit it will block the requist 
+    # if its not legit it will block the requist
     permission_classes = (permissions.UpdateOwnProfile,)
+
+    #adding a searching functionality usin the class search filter from rest_framework
+    filter_backends = (filters.SearchFilter,)
+    # adding the fields that the user can use to look up
+    search_fields = ('name','email',)
