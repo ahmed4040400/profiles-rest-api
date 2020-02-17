@@ -18,9 +18,10 @@ from django.urls import include,path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     # include is a method that allows us to
     # put a set urlpatterns in on path
-    # so the call request looks like this 
+    # so the call request looks like this
     # http://localhost:8000/api/hello/
     path('api/', include('profiles_api.urls')),
 
