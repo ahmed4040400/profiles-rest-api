@@ -121,6 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# teeling django to use this model as
-#the main model for authentication stuff
+# telling django to use this model as
+# the main model for authentication stuff
 AUTH_USER_MODEL = 'profiles_api.UserProfile'

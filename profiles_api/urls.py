@@ -11,10 +11,11 @@ router = DefaultRouter()
 # and register it to the router
 router.register("helloViewSet", views.helloViewSet, base_name="helloViewSet")
 # in this router we don't need to add the basename
-# bacause a already added a queryset in this class
-# wich leads the rest_framework to get the basename
+# because a already added a queryset in this class
+# which leads the rest_framework to get the basename
 # from this queryset
 router.register('profile', views.UserProfileViewSet)
+router.register('feed', views.UserProfileFeedViewSet)
 urlpatterns = [
     # as_view() that we inherited in our apiView based classes
     # that allow django to know that this is meant to be
