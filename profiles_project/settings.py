@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g^uq+!k9&n$wa*uo_jnu7pnld5*x6975huu+!u+!$jj!4yq@ju'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# if we run the server on a local machine the debug is true
+# but if it's on  public server that means the Debug = false
+DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
 ALLOWED_HOSTS = []
 
@@ -124,3 +126,5 @@ STATIC_URL = '/static/'
 # telling django to use this model as
 # the main model for authentication stuff
 AUTH_USER_MODEL = 'profiles_api.UserProfile'
+# where the static files gonna be stored
+STATIC_ROOT='static/'

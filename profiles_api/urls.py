@@ -9,7 +9,7 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 # adding the urlpattern and the view and the basename (just the name)
 # and register it to the router
-router.register("helloViewSet", views.helloViewSet, base_name="helloViewSet")
+# router.register("helloViewSet", views.helloViewSet, base_name="helloViewSet")
 # in this router we don't need to add the basename
 # because a already added a queryset in this class
 # which leads the rest_framework to get the basename
