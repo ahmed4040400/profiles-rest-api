@@ -27,7 +27,7 @@ SECRET_KEY = 'g^uq+!k9&n$wa*uo_jnu7pnld5*x6975huu+!u+!$jj!4yq@ju'
 # but if it's on  public server that means the Debug = false
 DEBUG = bool(int(os.environ.get('DEBUG',1)))
 
-ALLOWED_HOSTS = ['ec2-3-133-101-147.us-east-2.compute.amazonaws.com','127.0.0.1']
+ALLOWED_HOSTS = ['ec2-3-135-186-84.us-east-2.compute.amazonaws.com','127.0.0.1']
 
 
 # Application definition
