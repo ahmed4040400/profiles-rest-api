@@ -12,7 +12,7 @@ class UserProfileManager(BaseUserManager):
        like adding users and super users
      """
 
-    def create_user(self, email, name, password=None):
+    def creat_user(self, email, name, password=None):
         """create a normal user"""
         if not email:
             raise ValueError("the user must have an email")
@@ -31,7 +31,7 @@ class UserProfileManager(BaseUserManager):
         # returns the user object
         return user
 
-    def create_superuser(self, email, password, name):
+    def creat_superuser(self, email, password, name):
         """for creating a super user"""
         # start by creating a normal user
         user = self.creat_user(email, name, password)
